@@ -54,6 +54,7 @@ body{
 .btn{
   padding: 7px;
   margin-right:10px;
+  width: auto;
 }
 
 #portfolio{
