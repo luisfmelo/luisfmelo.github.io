@@ -75,5 +75,8 @@ a:hover{
 
 #cv{
   text-align: center;
+}
 
+.row{
+  width:100%;
 }
