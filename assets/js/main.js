@@ -36,33 +36,40 @@ $(document).ready(function() {
         });
     });
 
+    var sections = $('section'),
+        nav = $('nav'),
+        nav_height = nav.outerHeight();
+
+    $(window).on('scroll', function() {
+        var cur_pos = $(this).scrollTop();
+
+        sections.each(function() {
+            var top = $(this).offset().top - nav_height,
+                bottom = top + $(this).outerHeight();
+
+            if (cur_pos >= top && cur_pos <= bottom) {
+                nav.find('li').removeClass('active');
+
+                nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active');
+            }
+        });
+    });
+
+    nav.find('a').on('click', function() {
+        var $el = $(this),
+            id = $el.attr('href');
+
+        $('html, body').animate({
+            scrollTop: $(id).offset().top - nav_height
+        }, 500);
+
+        return false;
+    });
+
 
     /*----------------------------------------------------*/
     /* Highlight the current section in the navigation bar
     ------------------------------------------------------*/
-
-    var sections = $("section");
-    var navigation_links = $("#nav-wrap a");
-
-    sections.waypoint({
-
-        handler: function(event, direction) {
-
-            var active_section;
-
-            active_section = $(this);
-            if (direction === "up") active_section = active_section.prev();
-
-            var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
-
-            navigation_links.parent().removeClass("current");
-            active_link.parent().addClass("current");
-
-        },
-        offset: '35%'
-
-    });
-
 
 });
 
@@ -108,15 +115,13 @@ $(function() {
             //form.submit();
             $(".message").show();
             $(".message").fadeOut(4500);
-            if ( $("#contact").valid() )
-            {
+            if ($("#contact").valid()) {
                 $.post("http://formspree.io/luismelo7@gmail.com", {
-                        name: "ggggg",//$('input[name="name"]').val(),
-                        email: "ffff",//$('input[name="email"]').val(),
-                        message: "dfdfds"//$('textarea[name="message"]').val()
+                        name: $('input[name="name"]').val(),
+                        email: $('input[name="email"]').val(),
+                        message: $('textarea[name="message"]').val()
                     },
-                    function(data, status) {
-                    });
+                    function(data, status) {});
             }
 
         }
@@ -124,33 +129,3 @@ $(function() {
 
 
 });
-
-/*
-
-$('#contact').submit(function(e) {
-      var name = $('input[name="name"]');
-      var email = $('input[name="email"]');
-      var message = $('textarea[name="message"]');
-
-      if(name.val() == "" || email.val() == "" || message.val() == "") {
-        $('.submit-fail').fadeToggle(400);
-        return false;
-      }
-      else {
-        $.ajax({
-          method: 'POST',
-            crossDomain: true,
-          url: 'http://formspree.io/luismelo7@gmail.com',
-          data: $('#contact').serialize(),
-          datatype: 'json'
-        });
-        e.preventDefault();
-        $(this).get(0).reset();
-        $('.message').fadeToggle(400);
-      }
-
-/*
-  $('.submit-fail, .submit-success').click(function() {
-    $(this).hide();
-})
-});*/

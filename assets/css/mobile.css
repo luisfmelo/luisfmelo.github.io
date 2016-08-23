@@ -1,0 +1,130 @@
+/******************************************************************************/
+
+
+/*                           1. General Styles                                */
+
+
+/******************************************************************************/
+
+@media screen and (max-width: 991px) {
+    section {
+        padding: 10% !important;
+    }
+    .title-section {
+        text-align: center;
+    }
+    .h-section-r {
+        width: 20%;
+        margin-left: 43%;
+        margin-bottom: 20px;
+    }
+    .symbol-section {
+        margin-left: 10%;
+        font-size: 30px;
+    }
+}
+;
+@media screen and (max-width:639px) {}
+@media screen and (max-width:479px) {}
+
+/******************************************************************************/
+
+
+/*                               2. NAVBAR                                    */
+
+
+/******************************************************************************/
+
+@media screen and (max-width:767px) {
+    .active {
+        background-color: transparent !important;
+    }
+    ul#nav li {
+        position: relative;
+        background-color: #111;
+        display: list-item;
+    }
+    .navbar-header, .navbar-collapse {
+        background-color: #111;
+    }
+    ul#nav li a {
+        padding: 0;
+        line-height: 0px;
+        text-decoration: none;
+        text-align: left;
+        color: #eee;
+        font-size: 15px;
+        -webkit-transition: color .3s ease-in-out;
+        -moz-transition: color .3s ease-in-out;
+        -o-transition: color .3s ease-in-out;
+        -ms-transition: color .3s ease-in-out;
+        transition: color .3s ease-in-out;
+    }
+    ul#nav li {
+        height: 40px;
+    }
+}
+@media screen and (max-width:639px) {
+    ul#nav li a {
+        font-size: 13px;
+    }
+    ul#nav li {
+        height: 35px;
+    }
+}
+@media screen and (max-width:479px) {
+    ul#nav li a {
+        font-size: 10px;
+    }
+    ul#nav li {
+        height: 30px;
+    }
+}
+
+/******************************************************************************/
+
+
+/*                           2. Header Styles                                 */
+
+
+/******************************************************************************/
+
+
+/******************************************************************************/
+
+
+/*                           3. About Styles                                  */
+
+
+/******************************************************************************/
+@media screen and (max-width: 991px) {
+    .my-photo {
+        border-radius: 100%;
+        width: 50%;
+        margin-left: 25%;
+    }
+}
+
+@media screen and (max-width:479px) {
+    .my-photo {
+        width: 70%;
+        margin-left: 15%;
+    }
+}
+
+/******************************************************************************/
+
+
+/*                   3. Education & Experience                                */
+
+
+/******************************************************************************/
+
+
+/******************************************************************************/
+
+
+/*                            4. Contact Me                                   */
+
+
+/******************************************************************************/
