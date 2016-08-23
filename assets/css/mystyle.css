@@ -1,0 +1,371 @@
+/******************************************************************************/
+/*                           1. General Styles                                */
+/******************************************************************************/
+html, body{
+    height:100%; /* force the BODY element to match full height */
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+section{
+   background-color: #eee;
+   padding-top: 96px;
+   padding-bottom: 66px;
+   overflow: hidden;
+}
+
+.grey-section{
+   background-color: #ddd;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+   line-height: 30px;
+   color: #777;
+   font-family: 'Titillium Web', sans-serif;
+}
+
+.title{
+   color: #333;
+   font: 40px/30px 'Amaranth', sans-serif;
+   margin-bottom: 20px;
+   margin-left: 50px;;
+}
+
+.h-section-r{
+   border: 0;
+   height: 5px;
+   background-color: #FFB300;
+   width: 20%;
+   margin-bottom: 20px;
+   margin-left: 50px;
+}
+
+a{
+  color: #FFB300;
+}
+
+.symbol-section{
+
+    color: #FFB300;
+    margin-left: 80px;
+    font-size: 30px;
+}
+
+/******************************************************************************/
+/*                           2. Header Styles                                 */
+/******************************************************************************/
+
+header {
+   position: relative;
+   height: 100%;
+   min-height: 100%;
+   width: 100%;
+   background: #161415 url(../../assets/imgs/banner.png) no-repeat top center;
+   background-size: cover !important;
+	-webkit-background-size: cover !important;
+   text-align: center;
+   /*overflow  hidden;*/
+}
+
+/* center vertically - stackoverflow trick */
+header:before {
+   content: '';
+   display: inline-block;
+   vertical-align: middle;
+   height: 100%;
+}
+
+
+header .banner {
+   display: inline-block;
+   vertical-align: middle;
+   margin: 0 auto;
+   width: 90%;
+   text-align: center;
+}
+
+header .banner-text h1 {
+   font: 90px 'Amaranth', sans-serif;
+   color: #eee;
+   letter-spacing: 2px;
+   margin: 0 auto 18px auto;
+   display: inline-block;
+   width: 85%;
+   /*text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);*/
+}
+header .banner-text h3 {
+   font: 18px/35px 'Titillium Web', sans-serif;
+   color: #ddd;
+   margin: 0 auto;
+   width: 70%;
+   text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+}
+
+/* header social links */
+header .social {
+   margin: 24px 0;
+   padding: 0;
+   font-size: 30px;
+   text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
+}
+
+header .social li {
+   display: inline-block;
+   margin: 0 15px;
+   padding: 0;
+}
+
+header .social li a {
+  color: #eee;
+}
+
+header .social li a:hover {
+   color: #FFB300;
+   border-bottom:3px solid #FFB300;
+}
+
+/* scrool down link */
+header .scrolldown a {
+   position: absolute;
+   bottom: 30px;
+   left: 50%;
+   margin-left: -29px;
+   display: block;
+   font-size: 42px;
+   color: #eee;
+   border-radius: 100%;
+}
+
+header .scrolldown a:hover {
+  color: #FFB300;
+}
+
+/* NAVBAR */
+#nav-wrap ul, #nav-wrap li, #nav-wrap a {
+	 margin: 0;
+	 padding: 0;
+	 border: none;
+	 outline: none;
+}
+
+/* nav-wrap */
+#nav-wrap {
+   font: 14px 'Titillium Web', sans-serif;
+   width: 100%;
+   text-transform: uppercase;
+   letter-spacing: 2.5px;
+   margin: 0 auto;
+   z-index: 100;
+   position: fixed;
+   left: 0;
+   top: 0;
+}
+
+/* hide toggle button */
+#nav-wrap > a.mobile-btn { display: none; }
+
+ul#nav {
+   min-height: 48px;
+   width: auto;
+
+   /* center align the menu */
+   text-align: center;
+}
+ul#nav li {
+   position: relative;
+   list-style: none;
+   height: 48px;
+   display: inline-block;
+}
+
+/* Links */
+ul#nav li a {
+
+ /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
+
+   display: inline-block;
+   padding: 8px 13px;
+   line-height: 32px;
+	text-decoration: none;
+   text-align: left;
+   color: #eee;
+
+	-webkit-transition: color .3s ease-in-out;
+	-moz-transition: color .3s ease-in-out;
+	-o-transition: color .3s ease-in-out;
+	-ms-transition: color .3s ease-in-out;
+	transition: color .3s ease-in-out;
+}
+
+ul#nav li a:active {
+   background-color: transparent ;
+   color: #FFB300!important;
+
+}
+ul#nav li a:hover {
+   background-color: #FFB300 !important;
+   color: #222
+}
+ul#nav li.current a { color: #FFB300; }
+
+header nav hr{
+   border: 0;
+   height: 1px;
+   background-image: linear-gradient(to right, #222, #FFB300, #222);
+   width: 60%;
+   margin-top: 2px;
+}
+
+.navbar-solid {
+  background-color: #111 !important;
+  padding: 0 !important;
+  -webkit-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+  height: 50px;
+}
+
+
+/******************************************************************************/
+/*                           3. About Styles                                  */
+/******************************************************************************/
+
+/*
+#about a, #about a:visited  { color: #fff; }
+#about a:hover, #about a:focus { color: #11ABB0; }
+*/
+
+.my-photo{
+  border-radius: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/******************************************************************************/
+/*                   3. Education & Experience                                */
+/******************************************************************************/
+
+ .new-entry h4{
+   color: #333;
+   font-weight: bold;
+ }
+
+ .new-entry h6{
+  color: #333;
+  font-weight: bold;
+  padding-left: 20px;
+ }
+
+ .new-entry p, li{
+  color: #777;
+  padding-left: 20px;
+  padding-left: 20px;
+ }
+
+ .new-entry{
+   border-radius: 25px;
+   border: 2px solid #333;
+   background-color: #FAEBC8;
+   padding: 20px;
+   margin-top: 20px;
+ }
+
+.no-border{
+  border: 0;
+  background-color: transparent;
+}
+
+.no-border h4{
+  color: #777;
+  font-size: 18px;
+}
+
+.no-border h6{
+ color: #333;
+ font-weight: bold;
+}
+
+.no-border p{
+ color: #777;
+}
+
+
+
+/******************************************************************************/
+/*                            4. Contact Me                                   */
+/******************************************************************************/
+
+textarea {
+  height:100px;
+}
+input, textarea {
+  padding: 15px 10px 10px;
+  font-family: 'Titillium Web', sans-serif;
+  border: 0;
+  border-radius: 5px;
+  border-bottom: 1px solid #AAA;
+  background: transparent;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  width: 80%;
+  max-width: 600px;
+}
+
+input:focus, textarea:focus{
+    outline:none;
+    border-bottom: 1px solid #FFB300;
+}
+
+button {
+  margin-top:40px;
+  margin-bottom:25px;
+  background-color:#FAEBC8;
+  padding: 5px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: inline-block;
+  cursor: pointer;
+  width:50%;
+}
+
+button:hover, .button:hover {
+  background:#FAEBC8;
+  outline:none;
+}
+
+label.error {
+    font-family: 'Titillium Web', sans-serif;
+    font-size:1em;
+    display:block;
+    padding-top:10px;
+    padding-left:10px;
+    padding-bottom:10px;
+    background-color:#d89c9c;
+    width: 80%;
+    margin-top: 10px;
+    color: #FAFAFA;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+}
+
+.message {
+    font-family: 'Titillium Web', sans-serif;
+    font-size:1.1em;
+    display:none;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color:#FFB300;
+    margin:auto;
+    color: #FAFAFA;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+}
