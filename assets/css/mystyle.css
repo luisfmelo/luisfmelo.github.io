@@ -403,7 +403,7 @@ button {
     transition: .5s;
     display: inline-block;
     cursor: pointer;
-    width: 250px;
+    width: 100%;
 }
 button:hover, .button:hover {
     background: #FAEBC8;
@@ -444,7 +444,11 @@ label.error {
 /*                                7. Footer                                   */
 
 
-/******************************************************************************/
+/******************************************************************************
+
+
+
+*/
 footer{
     background-color: #111;
 }
@@ -455,9 +459,10 @@ footer{
     margin: 0 auto;
     text-align: center;
 }
+
+
 .social-foot li {
     display: inline-block;
-    margin: 0 40px;
     padding-top: 75px;
     padding-bottom: 75px;
 }
