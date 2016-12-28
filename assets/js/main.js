@@ -71,6 +71,14 @@ $(document).ready(function() {
     /* Highlight the current section in the navigation bar
     ------------------------------------------------------*/
 
+
+    /*----------------------------------------------------*/
+    /* Particles.js
+    ------------------------------------------------------*/
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+
 });
 
 

@@ -160,7 +160,7 @@ ul#nav li.active a {
     height: 100%;
     min-height: 100%;
     width: 100%;
-    background: #161415 url(../../assets/imgs/banner.png) no-repeat top center;
+    /*background: #161415 url(../../assets/imgs/banner.png) no-repeat top center;*/
     background-size: cover !important;
     -webkit-background-size: cover !important;
     text-align: center;
