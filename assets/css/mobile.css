@@ -63,6 +63,9 @@
     ul#nav li {
         height: 40px;
     }
+    .navbar-solid{
+      padding: 0!important;
+    }
 }
 @media screen and (max-width:639px) {
     ul#nav li a {

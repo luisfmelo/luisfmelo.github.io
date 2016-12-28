@@ -6,18 +6,25 @@ $(document).ready(function() {
      *  Responsive text: https://github.com/davatron5000/FitText.js
      ********************************************************************/
     setTimeout(function() {
-        $('h1.name-responsive').fitText(1, {
-            minFontSize: '20px',
+        $('h1.name-responsive').fitText(0.7, {
+            minFontSize: '30px',
             maxFontSize: '100px'
         });
-    }, 100);
+    }, 10);
 
     setTimeout(function() {
         $('h3.name-responsive').fitText(1.5, {
-            minFontSize: '6px',
+            minFontSize: '5px',
             maxFontSize: '20px'
         });
-    }, 100);
+    }, 10);
+
+    setTimeout(function() {
+        $('h4.name-responsive').fitText(1.7, {
+            minFontSize: '1px',
+            maxFontSize: '15px'
+        });
+    }, 10);
 
     /********************************************************************
      *  Smooth Scroll
@@ -76,7 +83,7 @@ $(document).ready(function() {
     /* Particles.js
     ------------------------------------------------------*/
     particlesJS.load('particles-js', 'particles.json', function() {
-      console.log('callback - particles.js config loaded');
+        console.log('callback - particles.js config loaded');
     });
 
 });
