@@ -1,5 +1,9 @@
 $(document).ready(function() {
-
+    $("#home").load("includes/home.html");
+    $("#about").load("includes/about.html");
+    $("#experience").load("includes/experience.html");
+    $("#education").load("includes/education.html");
+    $("#contactme").load("includes/contact.html");
     handleTopNavAnimation();
 
     /********************************************************************

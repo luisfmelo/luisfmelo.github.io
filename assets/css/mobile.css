@@ -15,12 +15,15 @@
     }
     .h-section-r {
         width: 20%;
-        margin-left: 43%;
+        margin-left: 35%;
         margin-bottom: 20px;
     }
     .symbol-section {
         margin-left: 10%;
         font-size: 30px;
+    }
+    .title{
+      margin-left: 0!important;
     }
 }
 ;
