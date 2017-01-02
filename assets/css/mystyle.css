@@ -178,13 +178,13 @@ ul#nav li a:active {
     color: #FFB300!important;
 }
 
-ul#nav li a:hover {
-    background-color: #FFB300 !important;
-    color: #222
-}
-
 ul#nav li.active a {
     color: #FFB300;
+}
+
+ul#nav li a:hover {
+    background-color: #FFB300 !important;
+    color: #222;
 }
 
 .navbar-solid {
@@ -493,10 +493,11 @@ button {
     display: inline-block;
     cursor: pointer;
     width: 100%;
+    padding: 20px;
 }
 
 button:hover, .button:hover {
-    background: #FAEBC8;
+    background: #FFB300;
     outline: none;
 }
 
