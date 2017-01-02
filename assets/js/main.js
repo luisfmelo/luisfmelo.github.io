@@ -64,6 +64,9 @@ $(document).ready(function() {
                 nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active');
             }
         });
+
+        // Expand/Collapse Professional XP description
+        $('.new-entry').on('click', toggleSignal);
     });
 
     nav.find('a').on('click', function() {
@@ -76,12 +79,6 @@ $(document).ready(function() {
 
         return false;
     });
-
-
-    /*----------------------------------------------------*/
-    /* Highlight the current section in the navigation bar
-    ------------------------------------------------------*/
-
 
     /*----------------------------------------------------*/
     /* Particles.js
@@ -108,6 +105,22 @@ function handleTopNavAnimation() {
     }
 }
 
+/*----------------------------------------------------*/
+/* Professional Experience Expand/Collapse
+------------------------------------------------------*/
+function toggleSignal(e) {
+  $el = $(this)
+        .find(".signal")
+        .find("i")
+        .toggleClass('fa fa-minus fa fa-plus rotate rotate2');
+
+  $(this).find('div')
+         .eq(2)
+         .slideToggle(500);
+  setTimeout(function(){
+      $el.toggleClass('rotate2 rotate');
+  },300);
+}
 
 
 // When the browser is ready...
