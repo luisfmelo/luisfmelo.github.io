@@ -441,17 +441,17 @@ ul#nav li a:hover {
     background-color: transparent;
 }
 
-.no-bckg h4 {
+.new-entry div h4 {
     color: #777;
     font-size: 18px;
 }
 
-.no-bckg h6 {
+.new-entry div h6 {
     color: #333;
     font-weight: bold;
 }
 
-.no-bckg p {
+.new-entry div p {
     color: #777;
 }
 
