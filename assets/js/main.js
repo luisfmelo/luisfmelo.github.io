@@ -122,8 +122,10 @@ function toggleSignal(e) {
 }
 
 
-// When the browser is ready...
-function formHandler(){
+/********************************************************************
+ *  Form handler -> E mail message
+ ********************************************************************/
+ function formHandler(){
     // validate
     $("#contact").validate({
         // Set the validation rules
