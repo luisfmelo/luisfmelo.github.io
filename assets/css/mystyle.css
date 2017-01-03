@@ -71,7 +71,7 @@ a {
 }
 
 #particles-js canvas {
-    display: block;
+    display: inline-block;
     vertical-align: bottom;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -79,15 +79,10 @@ a {
     opacity: 1;
     -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
     transition: opacity .8s ease, transform 1.4s ease
-}
 
-#particles-js {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -10;
-    top: 0;
-    left: 0
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
@@ -104,6 +99,10 @@ a {
     font-size: 30px;
 }
 
+#nav-wrap{
+  width:100vw;
+}
+
 .navbar-toggle {
     margin-right: 0;
     width: 100%;
@@ -111,6 +110,11 @@ a {
 
 .navbar-toggle:hover {
     background-color: transparent;
+}
+
+.navbar-collapse{
+  padding-left: 0!important;
+  padding-right: 0!important;
 }
 
 #nav-wrap ul, #nav-wrap li, #nav-wrap a {
@@ -569,7 +573,12 @@ label.error {
 footer {
     background-color: #111;
 }
-
+footer div{
+  width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 .social-foot {
     font-size: 30px;
     text-shadow: 0px 5px 2px rgba(0, 0, 0, .8);
@@ -593,7 +602,6 @@ footer {
 
 .final {
     font-family: 'Titillium Web', sans-serif;
-    ;
     color: #eee;
     width: 100%;
     text-align: center;
