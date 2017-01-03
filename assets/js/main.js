@@ -2,6 +2,9 @@ const nav = $('nav'),
     nav_height = nav.outerHeight();
 
 $(document).ready(function() {
+    // Expand/Collapse Professional XP description
+    $('.new-entry').on('click', toggleSignal);
+
     // Fit text
     fitText();
 
@@ -85,9 +88,6 @@ function changeActive(e) {
             nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active');
         }
     });
-
-    // Expand/Collapse Professional XP description
-    $('.new-entry').on('click', toggleSignal);
 }
 
 

@@ -433,22 +433,21 @@ ul#nav li a:hover {
 }
 
 
-.no-border {
-    border: 0;
+.no-bckg {
     background-color: transparent;
 }
 
-.no-border h4 {
+.no-bckg h4 {
     color: #777;
     font-size: 18px;
 }
 
-.no-border h6 {
+.no-bckg h6 {
     color: #333;
     font-weight: bold;
 }
 
-.no-border p {
+.no-bckg p {
     color: #777;
 }
 
