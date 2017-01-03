@@ -1,13 +1,19 @@
 $(document).ready(function() {
+    var nav = $('nav'),
+        nav_height = nav.outerHeight();
+
+    /********************************************************************
+     * Inclui as Diversas Secções
+     ********************************************************************/
     $("#home").load("includes/home.html");
     $("#about").load("includes/about.html");
     $("#experience").load("includes/experience.html");
     $("#education").load("includes/education.html");
     $("#contactme").load("includes/contact.html");
-    handleTopNavAnimation();
+    //handleTopNavAnimation();
 
     /********************************************************************
-     *  Responsive text: https://github.com/davatron5000/FitText.js
+     * Responsive text: https://github.com/davatron5000/FitText.js
      ********************************************************************/
     setTimeout(function() {
         $('h1.name-responsive').fitText(0.7, {
@@ -33,8 +39,7 @@ $(document).ready(function() {
     /********************************************************************
      *  Smooth Scroll
      ********************************************************************/
-
-    $('.smoothscroll').on('click', function(e) {
+    $("body").delegate(".smoothscroll", "click", function(e) {
         e.preventDefault();
 
         var target = this.hash,
@@ -47,14 +52,14 @@ $(document).ready(function() {
         });
     });
 
-    var sections = $('section'),
-        nav = $('nav'),
-        nav_height = nav.outerHeight();
 
-    $(window).on('scroll', function() {
+    /********************************************************************
+     *  Smooth Scroll
+     ********************************************************************/
+     $("body").delegate(window, "scroll", function(e) {
         var cur_pos = $(this).scrollTop();
 
-        sections.each(function() {
+        $('section').each(function() {
             var top = $(this).offset().top - nav_height,
                 bottom = top + $(this).outerHeight();
 
@@ -89,12 +94,14 @@ $(document).ready(function() {
 
 });
 
-
 $(window).scroll(function() {
     handleTopNavAnimation();
 });
 
 
+/*----------------------------------------------------*/
+/* Solidifica NavBar quando inici0o scrol
+------------------------------------------------------*/
 function handleTopNavAnimation() {
     var top = $(window).scrollTop();
 
@@ -109,17 +116,17 @@ function handleTopNavAnimation() {
 /* Professional Experience Expand/Collapse
 ------------------------------------------------------*/
 function toggleSignal(e) {
-  $el = $(this)
+    $el = $(this)
         .find(".signal")
         .find("i")
         .toggleClass('fa fa-minus fa fa-plus rotate rotate2');
 
-  $(this).find('div')
-         .eq(2).stop()
-         .slideToggle("slow");
-  setTimeout(function(){
-      $el.toggleClass('rotate2 rotate');
-  },300);
+    $(this).find('div')
+        .eq(2).stop()
+        .slideToggle("slow");
+    setTimeout(function() {
+        $el.toggleClass('rotate2 rotate');
+    }, 300);
 }
 
 
