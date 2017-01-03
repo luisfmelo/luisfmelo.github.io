@@ -115,8 +115,8 @@ function toggleSignal(e) {
         .toggleClass('fa fa-minus fa fa-plus rotate rotate2');
 
   $(this).find('div')
-         .eq(2)
-         .slideToggle(500);
+         .eq(2).stop()
+         .slideToggle("slow");
   setTimeout(function(){
       $el.toggleClass('rotate2 rotate');
   },300);
