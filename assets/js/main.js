@@ -1,20 +1,34 @@
+const nav = $('nav'),
+    nav_height = nav.outerHeight();
+
 $(document).ready(function() {
-    var nav = $('nav'),
-        nav_height = nav.outerHeight();
+    // Fit text
+    fitText();
 
-    /********************************************************************
-     * Inclui as Diversas Secções
-     ********************************************************************/
-    $("#home").load("includes/home.html");
-    $("#about").load("includes/about.html");
-    $("#experience").load("includes/experience.html");
-    $("#education").load("includes/education.html");
-    $("#contactme").load("includes/contact.html");
-    //handleTopNavAnimation();
+    // Smooth Scroll
+    $('.smoothscroll').on('click', smoothScroll);
 
-    /********************************************************************
-     * Responsive text: https://github.com/davatron5000/FitText.js
-     ********************************************************************/
+    // Solidify navBar
+    $(window).on('scroll', navBarSolidify);
+    navBarSolidify();
+
+    // Change Active Section on NavBar
+    $(window).on('scroll', changeActive);
+    changeActive();
+
+    // Particles.js Initializer
+    particlesJS.load('particles-js', 'particles.json');
+
+    // Form handler -> E mail message
+    formHandler();
+});
+
+
+
+/********************************************************************
+ * Responsive text: https://github.com/davatron5000/FitText.js
+ ********************************************************************/
+function fitText() {
     setTimeout(function() {
         $('h1.name-responsive').fitText(0.7, {
             minFontSize: '30px',
@@ -35,74 +49,52 @@ $(document).ready(function() {
             maxFontSize: '15px'
         });
     }, 10);
+}
 
-    /********************************************************************
-     *  Smooth Scroll
-     ********************************************************************/
-    $("body").delegate(".smoothscroll", "click", function(e) {
-        e.preventDefault();
 
-        var target = this.hash,
-            $target = $(target);
+/********************************************************************
+ *  Smooth Scroll
+ ********************************************************************/
+function smoothScroll(e) {
+    e.preventDefault();
 
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 800, 'swing', function() {
-            window.location.hash = target;
-        });
+    var target = this.hash,
+        $target = $(target);
+
+    $('html, body').stop().animate({
+        'scrollTop': $target.offset().top
+    }, 800, 'swing', function() {
+        window.location.hash = target;
+    });
+}
+
+
+/********************************************************************
+ *  Change Active Section on NavBar
+ ********************************************************************/
+function changeActive(e) {
+    var cur_pos = $(this).scrollTop();
+
+    $('section').each(function() {
+        var top = $(this).offset().top - nav_height,
+            bottom = top + $(this).outerHeight();
+
+        if (cur_pos >= top && cur_pos <= bottom) {
+            nav.find('li').removeClass('active');
+
+            nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active');
+        }
     });
 
-
-    /********************************************************************
-     *  Smooth Scroll
-     ********************************************************************/
-     $("body").delegate(window, "scroll", function(e) {
-        var cur_pos = $(this).scrollTop();
-
-        $('section').each(function() {
-            var top = $(this).offset().top - nav_height,
-                bottom = top + $(this).outerHeight();
-
-            if (cur_pos >= top && cur_pos <= bottom) {
-                nav.find('li').removeClass('active');
-
-                nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active');
-            }
-        });
-
-        // Expand/Collapse Professional XP description
-        $('.new-entry').on('click', toggleSignal);
-    });
-
-    nav.find('a').on('click', function() {
-        var $el = $(this),
-            id = $el.attr('href');
-
-        $('html, body').animate({
-            scrollTop: $(id).offset().top - nav_height
-        }, 500);
-
-        return false;
-    });
-
-    /*----------------------------------------------------*/
-    /* Particles.js
-    ------------------------------------------------------*/
-    particlesJS.load('particles-js', 'particles.json', function() {
-        console.log('callback - particles.js config loaded');
-    });
-
-});
-
-$(window).scroll(function() {
-    handleTopNavAnimation();
-});
+    // Expand/Collapse Professional XP description
+    $('.new-entry').on('click', toggleSignal);
+}
 
 
-/*----------------------------------------------------*/
-/* Solidifica NavBar quando inici0o scrol
-------------------------------------------------------*/
-function handleTopNavAnimation() {
+/********************************************************************
+ *  Solidify NavBar when scroll is initiated
+ ********************************************************************/
+function navBarSolidify() {
     var top = $(window).scrollTop();
 
     if (top > 10) {
@@ -112,9 +104,9 @@ function handleTopNavAnimation() {
     }
 }
 
-/*----------------------------------------------------*/
-/* Professional Experience Expand/Collapse
-------------------------------------------------------*/
+/********************************************************************
+ *  Professional Experience Expand/Collapse
+ ********************************************************************/
 function toggleSignal(e) {
     $el = $(this)
         .find(".signal")
@@ -131,7 +123,7 @@ function toggleSignal(e) {
 
 
 // When the browser is ready...
-$(function() {
+function formHandler(){
     // validate
     $("#contact").validate({
         // Set the validation rules
@@ -152,19 +144,21 @@ $(function() {
         // submit handler
         submitHandler: function(form) {
             //form.submit();
-            $(".message").show();
-            $(".message").fadeOut(4500);
+            $(".message").slideDown('slow').delay(1500);
+            $(".message").slideUp('slow');
             if ($("#contact").valid()) {
-                $.post("http://formspree.io/luismelo7@gmail.com", {
-                        name: $('input[name="name"]').val(),
-                        email: $('input[name="email"]').val(),
-                        message: $('textarea[name="message"]').val()
-                    },
-                    function(data, status) {});
+              $.ajax("https://formspree.io/luismelo7@gmail.com", {
+                  type:"POST",
+                  dataType:"json",
+                  data:{
+                    name: $('input[name="name"]').val(),
+                    email: $('input[name="email"]').val(),
+                    message: $('textarea[name="message"]').val()
+                  },
+                  success:function(data, textStatus, jqXHR) {console.log("success");},
+                  error: function(jqXHR, textStatus, errorThrown) {console.log("failure");}
+              });
             }
-
         }
     });
-
-
-});
+}
