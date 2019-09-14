@@ -151,21 +151,17 @@ jQuery(document).ready(function ($) {
             url: URL,
             data: data,
             success: function (msg) {
-                console.log(msg);
-                console.log(msg.success);
-                console.log(msg.success === "true");
-                // Message was sent
-                if (msg.success === 'true') {
-                    $('#image-loader').fadeOut();
-                    $('#message-warning').hide();
-                    $('#contactForm').fadeOut();
-                    $('#message-success').fadeIn();
-                }
                 // There was an error
-                else {
+                if (msg.success === 'false') {
                     $('#image-loader').fadeOut();
                     $('#message-warning').html(msg.message).fadeIn();
+                    return false;
                 }
+                // Message was sent
+                $('#image-loader').fadeOut();
+                $('#message-warning').hide();
+                $('#contactForm').fadeOut();
+                $('#message-success').fadeIn();
             }
         });
         return false;
