@@ -152,6 +152,8 @@ jQuery(document).ready(function ($) {
             data: data,
             success: function (msg) {
                 console.log(msg);
+                console.log(msg.success);
+                console.log(msg.success === "true");
                 // Message was sent
                 if (msg.success === 'true') {
                     $('#image-loader').fadeOut();
@@ -164,14 +166,10 @@ jQuery(document).ready(function ($) {
                     $('#image-loader').fadeOut();
                     $('#message-warning').html(msg.message).fadeIn();
                 }
-
             }
-
         });
         return false;
     });
-
-
 });
 
 
