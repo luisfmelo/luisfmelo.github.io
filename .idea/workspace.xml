@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="317454e3-21ce-4b96-909b-5fd2adf83cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +17,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QpQr7FnPdDDRGHBwWp6DhFulrG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -25,7 +33,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MTCustomThemeConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -36,19 +44,10 @@
       <recent name="$PROJECT_DIR$/images/old-images" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63345/luisfmelo.github.io/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63342/Ceevee10/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -57,6 +56,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
@@ -74,7 +74,9 @@
       <updated>1568465253927</updated>
       <workItem from="1568465256183" duration="4129000" />
       <workItem from="1568470274274" duration="6000" />
-      <workItem from="1568470293961" duration="4735000" />
+      <workItem from="1568470293961" duration="4892000" />
+      <workItem from="1586373902022" duration="2447000" />
+      <workItem from="1586466058930" duration="1392000" />
     </task>
     <servers />
   </component>
@@ -93,5 +95,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="542" y="334" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1586467505829">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="542" y="334" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586467505829" />
+    <state x="240" y="52" key="SettingsEditor" timestamp="1586467491344">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="240" y="52" key="SettingsEditor/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586467491344" />
+    <state x="428" y="490" key="com.intellij.ide.util.TipDialog" timestamp="1586466063340">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="428" y="490" key="com.intellij.ide.util.TipDialog/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586466063340" />
+    <state x="444" y="213" width="792" height="574" key="find.popup" timestamp="1586466868309">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="444" y="213" width="792" height="574" key="find.popup/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586466868309" />
+    <state x="444" y="213" width="792" height="574" key="find.popup/0.23.1680.955@0.23.1680.955" timestamp="1586387247894" />
   </component>
 </project>
