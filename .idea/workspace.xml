@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="317454e3-21ce-4b96-909b-5fd2adf83cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,8 @@
       <workItem from="1568470274274" duration="6000" />
       <workItem from="1568470293961" duration="4892000" />
       <workItem from="1586373902022" duration="2447000" />
-      <workItem from="1586466058930" duration="1392000" />
+      <workItem from="1586466058930" duration="1878000" />
+      <workItem from="1586546900900" duration="187000" />
     </task>
     <servers />
   </component>
@@ -105,14 +102,15 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="240" y="52" key="SettingsEditor/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586467491344" />
-    <state x="428" y="490" key="com.intellij.ide.util.TipDialog" timestamp="1586466063340">
+    <state x="428" y="490" key="com.intellij.ide.util.TipDialog" timestamp="1586716617946">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="428" y="490" key="com.intellij.ide.util.TipDialog/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586466063340" />
-    <state x="444" y="213" width="792" height="574" key="find.popup" timestamp="1586466868309">
+    <state x="428" y="490" key="com.intellij.ide.util.TipDialog/0.23.1680.955@0.23.1680.955" timestamp="1586716617946" />
+    <state x="444" y="213" width="965" height="654" key="find.popup" timestamp="1586716666228">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="444" y="213" width="792" height="574" key="find.popup/-458.-1417.2560.1417/0.23.1680.955@0.23.1680.955" timestamp="1586466868309" />
-    <state x="444" y="213" width="792" height="574" key="find.popup/0.23.1680.955@0.23.1680.955" timestamp="1586387247894" />
+    <state x="444" y="213" width="965" height="654" key="find.popup/0.23.1680.955@0.23.1680.955" timestamp="1586716666228" />
   </component>
 </project>
