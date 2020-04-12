@@ -118,7 +118,7 @@ header .social li a {
 }
 
 header .social li a:hover {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 /* scroll down link */
@@ -142,7 +142,7 @@ header .scrolldown a {
 }
 
 header .scrolldown a:hover {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 /* primary navigation
@@ -214,7 +214,7 @@ ul#nav li a:active {
 }
 
 ul#nav li.current a {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 
@@ -234,7 +234,7 @@ ul#nav li.current a {
 }
 
 #about a:hover, #about a:focus {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 #about h2 {
@@ -275,7 +275,7 @@ ul#nav li.current a {
 }
 
 #about .download .button:hover {
-    background: #CC5200;
+    background: #11ABB0;
     color: #111;
 }
 
@@ -297,7 +297,7 @@ ul#nav li.current a {
 }
 
 #resume a, #resume a:visited {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 #resume a:hover, #resume a:focus {
@@ -311,7 +311,7 @@ ul#nav li.current a {
 }
 
 #resume h1 span {
-    border-bottom: 3px solid #CC5200;
+    border-bottom: 3px solid #11ABB0;
     padding-bottom: 6px;
 }
 
@@ -755,7 +755,7 @@ ul#nav li.current a {
 /*#contact .section-head { margin-bottom: 42px; }*/
 
 #contact a, #contact a:visited {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 #contact a:hover, #contact a:focus {
@@ -833,7 +833,7 @@ ul#nav li.current a {
 #contact textarea:focus,
 #contact select:focus {
     color: #fff;
-    background-color: #CC5200;
+    background-color: #11ABB0;
 }
 
 #contact button.submit {
@@ -852,11 +852,11 @@ ul#nav li.current a {
 
 #contact button.submit:hover {
     color: #111;
-    background: #CC5200;
+    background: #11ABB0;
 }
 
 #contact span.required {
-    color: #CC5200;
+    color: #11ABB0;
     font-size: 13px;
 }
 
@@ -874,7 +874,7 @@ ul#nav li.current a {
 }
 
 #message-success {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 #message-warning i,
@@ -930,7 +930,7 @@ footer a, footer a:visited {
 }
 
 footer a:hover, footer a:focus {
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 /* copyright */
@@ -954,7 +954,7 @@ footer .copyright li:before {
     content: "\2022";
     padding-left: 10px;
     padding-right: 10px;
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 footer .copyright li:first-child:before {
@@ -972,7 +972,7 @@ footer .social-links li {
     display: inline-block;
     padding: 0;
     margin: 0 0 0 42px;
-    color: #CC5200;
+    color: #11ABB0;
 }
 
 footer .social-links li:first-child {
@@ -1007,6 +1007,6 @@ footer .social-links li:first-child {
 }
 
 #go-top a:hover {
-    background-color: #CC5200;
+    background-color: #11ABB0;
 }
 
