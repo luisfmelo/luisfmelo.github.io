@@ -58,10 +58,20 @@
         }
 
         nav .logo {
-            font-family: var(--mono);
-            font-weight: 700;
-            font-size: 16px;
-            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            height: 36px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        nav .logo img:hover {
+            opacity: 1;
         }
 
         nav .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -92,6 +102,21 @@
             padding: 120px 10% 80px;
             position: relative;
             overflow: hidden;
+            background: url('./images/header-background.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 10, 15, 0.92) 0%,
+                rgba(10, 10, 15, 0.75) 50%,
+                rgba(10, 10, 15, 0.6) 100%
+            );
+            pointer-events: none;
         }
 
         .hero::before {
@@ -103,6 +128,7 @@
             height: 600px;
             background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
             pointer-events: none;
+            z-index: 1;
         }
 
         .hero-content { max-width: 720px; position: relative; z-index: 1; }
@@ -475,7 +501,7 @@
 
 <!-- Nav -->
 <nav>
-    <div class="logo">luisfmelo</div>
+    <a class="logo" href="#home"><img src="images/logos/logo_transparent.png" alt="LM"></a>
     <ul class="nav-links">
         <li><a href="#about">about</a></li>
         <li><a href="#experience">experience</a></li>
@@ -563,7 +589,7 @@
             </p>
             <div class="timeline-subrole">
                 <div class="timeline-header">
-                    <span class="timeline-date" style="font-size:12px;">Aug 2022 - Oct 2025</span>
+                    <span class="timeline-date">Aug 2022 - Oct 2025</span>
                 </div>
                 <div class="timeline-role">Senior Software Engineer</div>
                 <p class="timeline-desc">
@@ -580,12 +606,12 @@
             <div class="timeline-role">Software Engineer</div>
             <p class="timeline-desc">
                 Backend Software Engineer working with Golang in the fintech space.
-                <ul>
-                    <li>US launch: from start to alpha, beta and public launch</li>
-                    <li>Crypto Rewards</li>
-                    <li>Smart Rules</li>
-                </ul>
             </p>
+            <ul class="timeline-desc">
+                <li>US launch: from start to alpha, beta and public launch</li>
+                <li>Crypto Rewards</li>
+                <li>Smart Rules</li>
+            </ul>
         </div>
 
         <div class="timeline-item">
