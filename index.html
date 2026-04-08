@@ -1,862 +1,691 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]>
-<html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>
-<html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
-
-    <!--- Basic Page Needs
-    ================================================== -->
     <meta charset="utf-8">
-    <title>Luís Melo</title>
-    <meta content="" name="description">
-    <meta content="" name="author">
+    <title>Luís Melo - Staff Software Engineer</title>
+    <meta name="description" content="Luís Melo - Staff Software Engineer at Qonto. Triathlete, learner, and code enthusiast.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/logos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- Mobile Specific Metas
-    ================================================== -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a28;
+            --accent: #00d4aa;
+            --accent-dim: rgba(0, 212, 170, 0.1);
+            --accent-glow: rgba(0, 212, 170, 0.15);
+            --text: #e0e0e8;
+            --text-dim: #8888a0;
+            --text-muted: #555566;
+            --border: #1e1e2e;
+            --mono: 'JetBrains Mono', monospace;
+            --sans: 'Inter', -apple-system, sans-serif;
+        }
 
-    <!-- CSS
-    ================================================== -->
-    <link href="css/default.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
-    <link href="css/media-queries.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
+        html { scroll-behavior: smooth; }
 
-    <!-- Script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    <!-- Favicons
-     ================================================== -->
-    <link href="images/logos/favicon.png" rel="shortcut icon">
+        ::selection { background: var(--accent); color: var(--bg); }
 
+        a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 0 40px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .logo {
+            font-family: var(--mono);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--accent);
+        }
+
+        nav .nav-links { display: flex; gap: 32px; list-style: none; }
+
+        nav .nav-links a {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav .nav-links a:hover,
+        nav .nav-links a.active { color: var(--accent); opacity: 1; }
+
+        nav .nav-links a::before {
+            content: '//';
+            color: var(--text-muted);
+            margin-right: 4px;
+            font-size: 11px;
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 10% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content { max-width: 720px; position: relative; z-index: 1; }
+
+        .hero-greeting {
+            font-family: var(--mono);
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.2s forwards;
+        }
+
+        .hero-name {
+            font-size: clamp(40px, 7vw, 72px);
+            font-weight: 700;
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.4s forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 300;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.6s forwards;
+        }
+
+        .hero-title span { color: var(--accent); font-weight: 500; }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-dim);
+            max-width: 520px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.8s forwards;
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            opacity: 0;
+            animation: fadeUp 0.6s 1s forwards;
+        }
+
+        .hero-socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .hero-socials a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
+            transform: translateY(-2px);
+            opacity: 1;
+        }
+
+        .hero-socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+        /* ---- SECTION ---- */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: var(--mono);
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            max-width: 300px;
+        }
+
+        /* ---- ABOUT ---- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-dim);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .about-photo {
+            position: relative;
+        }
+
+        .about-photo img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            filter: grayscale(20%);
+            transition: all 0.4s;
+        }
+
+        .about-photo img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .about-photo::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 100%;
+            max-width: 300px;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            z-index: -1;
+            transition: all 0.4s;
+        }
+
+        .about-photo:hover::after {
+            top: 10px;
+            left: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: var(--accent-dim);
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        /* ---- EXPERIENCE ---- */
+        .timeline { position: relative; }
+
+        .timeline-item {
+            position: relative;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(0, 212, 170, 0.2);
+            transform: translateX(4px);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .timeline-company {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .timeline-company a {
+            color: #fff;
+        }
+
+        .timeline-company a:hover {
+            color: var(--accent);
+        }
+
+        .timeline-date {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 4px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .timeline-role {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        .timeline-desc ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .timeline-desc ul li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc ul li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 13px;
+        }
+
+        .timeline-subrole {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ---- EDUCATION ---- */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .edu-card {
+            padding: 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .edu-card:hover {
+            border-color: rgba(0, 212, 170, 0.2);
+            background: var(--bg-card-hover);
+        }
+
+        .edu-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .edu-card h3 a { color: #fff; }
+        .edu-card h3 a:hover { color: var(--accent); }
+
+        .edu-card .edu-degree {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .edu-card .edu-date {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .edu-card p {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* ---- CONTACT ---- */
+        #contact {
+            text-align: center;
+            padding-bottom: 60px;
+        }
+
+        .contact-text {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            color: var(--text-dim);
+            font-size: 16px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links .btn {
+            margin-top: 0;
+        }
+
+        /* ---- ANIMATIONS ---- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            section { padding: 80px 6%; }
+            .hero { padding: 100px 6% 60px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-photo { order: -1; }
+            nav .nav-links { gap: 16px; }
+            nav .nav-links a { font-size: 12px; }
+            nav .nav-links a::before { display: none; }
+            .timeline-header { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo { font-size: 14px; }
+            nav .nav-links { gap: 12px; }
+            nav .nav-links a { font-size: 11px; }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Header
-================================================== -->
-<header id="home">
+<!-- Nav -->
+<nav>
+    <div class="logo">luisfmelo</div>
+    <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#education">education</a></li>
+        <li><a href="#contact">contact</a></li>
+    </ul>
+</nav>
 
-    <nav id="nav-wrap">
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="hero-greeting">Hi, my name is</p>
+        <h1 class="hero-name">Luís Melo.</h1>
+        <h2 class="hero-title">Staff Software Engineer @ <span>Qonto</span></h2>
+        <p class="hero-desc">
+            (Slow) triathlete, avid learner and code enthusiast.
+            Born and raised in Portugal, building fintech products that help businesses across Europe.
+        </p>
+        <ul class="hero-socials">
+            <li><a href="https://github.com/luisfmelo" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a></li>
+            <li><a href="https://pt.linkedin.com/in/luisfmelo" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a></li>
+            <li><a href="https://www.instagram.com/_luisfmelo/" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a></li>
+        </ul>
+    </div>
+</section>
 
-        <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-        <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-
-        <ul class="nav" id="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-            <li><a class="smoothscroll" href="#resume">Resume</a></li>
-            <!--<li><a class="smoothscroll" href="#portfolio">Works</a></li>-->
-            <!--<li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>-->
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-        </ul> <!-- end #nav -->
-
-    </nav> <!-- end #nav-wrap -->
-
-    <div class="row banner">
-        <div class="banner-text">
-            <h2 class="responsive-headline">Hi!</h2>
-            <h1 class="responsive-headline">I'm Luís Melo.</h1>
-            <h3>
-                I'm a <span>Software Engineer</span> at Qonto by day...<br/>
-                (Slow) <span>triathlete</span>, avid <span>learner</span> and <span>code enthusiast</span> by night.<br/>
-                Just start scrolling to learn more <a class="smoothscroll" href="#about">about me</a>.
-            </h3>
-            <hr/>
-            <ul class="social">
-                <li>
-                    <a href="https://www.facebook.com/luisfmelo94" target="_blank"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/luisfmelo" target="_blank"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/_luisfmelo/" target="_blank"><i class="fa fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://pt.linkedin.com/in/luisfmelo" target="_blank"><i class="fa fa-linkedin"></i></a>
-                </li>
-                <li>
-                    <a href="https://github.com/luisfmelo" target="_blank"><i class="fa fa-github"></i></a>
-                </li>
-            </ul>
-        </div>
+<!-- About -->
+<section id="about">
+    <div class="section-header">
+        <span class="section-number">01.</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
     </div>
 
-    <p class="scrolldown">
-        <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>
+                My name is Luís, and I was born and raised in Joane, Portugal.
+                I have a master's degree in Electrical Engineering, Robotics, and Automation but my passion for
+                software led me to get a post-graduation degree in Software Engineering.
+            </p>
+            <p>
+                I'm currently working as a Staff Software Engineer at Qonto, the leading
+                European business finance solution for SMEs and freelancers.
+            </p>
+            <p>
+                In my free time, I like to read tech blogs and experiment with new technologies.
+                I love cinema, traveling and learning about the history of every place I visit.
+                You can also find me practicing sports like running, swimming and biking.
+            </p>
+            <a class="btn" href="https://drive.google.com/open?id=1r8WoA4ru1_FhRzS5TZtFJLhQEWbEoPis" target="_blank">
+                Download Resume &darr;
+            </a>
+        </div>
+        <div class="about-photo">
+            <img alt="Luís Melo" src="./images/profile-pic.png">
+        </div>
+    </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+    <div class="section-header">
+        <span class="section-number">02.</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-company"><a href="https://www.qonto.com" target="_blank">Qonto</a></span>
+                <span class="timeline-date">Oct 2025 - Present</span>
+            </div>
+            <div class="timeline-role">Staff Software Engineer</div>
+            <p class="timeline-desc">
+                Qonto is the leading European business finance solution. It simplifies everything from everyday banking and financing to bookkeeping and spending management, serving hundreds of thousands of SMEs and freelancers across Europe.
+            </p>
+            <div class="timeline-subrole">
+                <div class="timeline-header">
+                    <span class="timeline-date" style="font-size:12px;">Aug 2022 - Oct 2025</span>
+                </div>
+                <div class="timeline-role">Senior Software Engineer</div>
+                <p class="timeline-desc">
+                    Built and scaled Qonto's platform, contributing to the growth of a product used by hundreds of thousands of European businesses.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-company"><a href="https://www.curve.com" target="_blank">Curve</a></span>
+                <span class="timeline-date">May 2021 - Jul 2022</span>
+            </div>
+            <div class="timeline-role">Software Engineer</div>
+            <p class="timeline-desc">
+                Backend Software Engineer working with Golang in the fintech space.
+                <ul>
+                    <li>US launch: from start to alpha, beta and public launch</li>
+                    <li>Crypto Rewards</li>
+                    <li>Smart Rules</li>
+                </ul>
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-company">Instituto Politécnico do Cávado e do Ave</span>
+                <span class="timeline-date">Nov 2021 - Mar 2022</span>
+            </div>
+            <div class="timeline-role">Invited Professor</div>
+            <p class="timeline-desc">
+                Seasonal teaching position at IPCA in Vila Nova de Famalicão.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-company"><a href="https://www.kelvininc.com" target="_blank">Kelvin Inc.</a></span>
+                <span class="timeline-date">Aug 2019 - Apr 2021</span>
+            </div>
+            <div class="timeline-role">Software Engineer</div>
+            <p class="timeline-desc">
+                Backend Engineer working with Golang and Python in a cloud distributed environment to develop high availability software.
+                Kelvin Inc. is a San Francisco based company that enables physical systems to optimize and operate themselves.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-company">HUUB</span>
+                <span class="timeline-date">Jan 2017 - Jul 2019</span>
+            </div>
+            <div class="timeline-role">Software Engineer</div>
+            <p class="timeline-desc">
+                Backend Engineer working with Python and Django Rest Framework in a micro-service based environment powered by AWS.
+                Led a team of 4 developers and was part of the software architecture design.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+    <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="edu-grid">
+        <div class="edu-card">
+            <h3><a href="https://fe.up.pt" target="_blank">Faculty of Engineering, University of Porto</a></h3>
+            <div class="edu-degree">Post-graduation in Software Engineering</div>
+            <div class="edu-date">Sep 2017 - Jan 2019</div>
+            <p>
+                Solidified knowledge in the full software product lifecycle: requirements gathering,
+                software architecture, development methodologies,
+                testing strategies, and team management.
+            </p>
+        </div>
+
+        <div class="edu-card">
+            <h3><a href="https://fe.up.pt" target="_blank">Faculty of Engineering, University of Porto</a></h3>
+            <div class="edu-degree">Master's in Electrical and Computer Engineering</div>
+            <div class="edu-date">Sep 2012 - Jul 2017</div>
+            <p>
+                Major in Automation, specializing in Robotics and Systems.
+                Advanced math, physics, computer science, IoT, industrial automation and computer vision.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="section-header" style="justify-content: center;">
+        <span class="section-number">04.</span>
+        <h2 class="section-title">Get In Touch</h2>
+    </div>
+
+    <p class="contact-text">
+        I'm always open to new opportunities and interesting conversations.
+        Whether you have a question or just want to say hi, feel free to reach out.
     </p>
 
-</header> <!-- Header End -->
-
-
-<!-- About Section
-================================================== -->
-<section id="about">
-
-    <div class="row">
-
-        <div class="three columns">
-
-            <img alt="" class="profile-pic" src="./images/profile-pic.png"/>
-
-        </div>
-
-        <div class="nine columns main-col">
-
-            <h2>About Me</h2>
-
-            <p>
-                My name is Luís, and I was born and raised in Joane (Portugal).
-                I have a master's degree in Electrical Engineering, Robotics, and Automation but my passion for
-                Software led me to get a post-graduation degree, this time in Software Engineering.
-                At this moment I'm working as a Software Engineer at Curve, a
-                London-based fintech that wants to revolutionize the payment industry.
-                <br/>
-                In my free time, I like to read tech blogs and experiment with new technological things.
-                Additionally, I like cinema and, you can, most of the time,
-                find me practicing sports like running, swimming and biking.
-                I love to travel and experiment with other cultures and know about the history of every place I visit.
-                <br/>
-                I have an extreme passion for technology and I value knowledge above all.
-
-            </p>
-
-            <div class="row">
-                <!--
-                                <div class="columns contact-details">
-
-                                    <h2>Contact Details</h2>
-                                    <p class="address">
-                                        <span>Jonathan Doe</span><br>
-                                        <span>1600 Amphitheatre Parkway<br>
-                                                 Mountain View, CA 94043 US
-                                     </span><br>
-                                        <span>(123)456-7890</span><br>
-                                        <span>anyone@website.com</span>
-                                    </p>
-
-                                </div>-->
-
-                <div class="columns download">
-                    <p>
-                        <a class="button" href="https://drive.google.com/open?id=1r8WoA4ru1_FhRzS5TZtFJLhQEWbEoPis" target="_blank">
-                            <i class="fa fa-download"></i>Download Resume
-                        </a>
-                    </p>
-                </div>
-
-            </div> <!-- end row -->
-
-        </div> <!-- end .main-col -->
-
+    <div class="contact-links">
+        <a class="btn" href="https://pt.linkedin.com/in/luisfmelo" target="_blank">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+        </a>
+        <a class="btn" href="https://github.com/luisfmelo" target="_blank">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+        </a>
+        <a class="btn" href="https://www.instagram.com/_luisfmelo/" target="_blank">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+        </a>
     </div>
+</section>
 
-</section> <!-- About Section End-->
-
-
-<!-- Resume Section
-================================================== -->
-<section id="resume">
-
-    <!-- Work
-    ----------------------------------------------- -->
-    <div class="row work">
-
-        <div class="three columns header-col">
-            <h1><span>Work</span></h1>
-        </div>
-
-        <div class="nine columns main-col">
-
-            <div class="row item">
-
-                <div class="twelve columns">
-
-                    <h3>Qonto <a href="https://www.qonto.com" target="_blank"><i class="fa fa-external-link"></i></a>
-                    </h3>
-                    <p class="info">Senior Software Engineer <span>&bull;</span> <em class="date">August, 2022 - Present</em>
-                    </p>
-
-                    <p>
-                        Qonto is the leading European business finance solution. It simplifies everything from everyday banking and financing to bookkeeping and spending management. Qonto energizes SMEs and freelancers so that they can achieve more.
-
-                        A few figures about Qonto:
-                        <ul>
-                            <li>Alexandre Prot and Steve Anavi created Qonto in July 2017</li>
-                            <li>500+ happy Qontoers (And we're hiring more!)</li>
-                            <li>220,000 + companies are using Qonto</li>
-                            <li>€622m raised with VCs and business angels including Valar, Alven, the European Investment Bank, Tencent, DST Global, Tiger Global, TCV, Alkeon, Eurazeo, KKR, Insight Partners, Exor Seeds and Gaingels.</li>
-                            <li>Listed in the French Tech #Next40, bringing together the most promising young companies of the French Tech industry.</li>
-                            <li>1st B2B account for financial management to get a Payment Institution licence.</li>
-                        </ul>
-                    </p>
-
-                </div>
-
-                <div class="twelve columns">
-
-                    <h3>Curve <a href="https://www.curve.com" target="_blank"><i class="fa fa-external-link"></i></a>
-                    </h3>
-                    <p class="info">Software Engineer <span>&bull;</span> <em class="date">May, 2021 - July, 2022</em>
-                    </p>
-
-                    <p>
-                        Backend Software Engineer working with Golang hoping to disrupt the fintech space. <br/>
-                        
-                        Projects:<br/>
-                        <ul>
-                            <li>US launch: from start to alpha, beta and public launch</li>
-                            <li>Crypto Rewards</li>
-                            <li>Smart Rules</li>
-                        </ul>
-
-                        Curve is on a mission to simplify the way people spend, send, see and save money. 
-                        We believe the end-game will be a connected world of money, tailored individually for each customer. 
-                        We’re building this end game - an Operating System for Money.
-                    </p>
-
-                </div>
-
-            </div> <!-- item end -->
-            
-
-            <div class="row item">
-
-                <div class="twelve columns">
-
-                    <h3>Kelvin Inc. <a href="https://www.kelvininc.com" target="_blank"><i class="fa fa-external-link"></i></a>
-                    </h3>
-                    <p class="info">Software Engineer <span>&bull;</span> <em class="date">August, 2019 - April, 2021</em>
-                    </p>
-
-                    <p>
-                        Backend Engineer working with Golang and Python in a cloud distributed environment to
-                        develop a high availability software. <br/>
-
-                        Kelvin Inc. is a San Francisco based company that enables physical
-                        systems to optimize and operate themselves, allowing people to focus on what matters most.
-                    </p>
-
-                </div>
-
-            </div> <!-- item end -->
-
-
-            <div class="row item">
-                <div class="twelve columns">
-
-                    <h3>HUUB <a href="https://www.thehuub.co" target="_blank"><i class="fa fa-external-link"></i></a></h3>
-                    <p class="info">Software Engineer <span>&bull;</span> <em class="date">February, 2017 - July,
-                        2019</em>
-                    </p>
-
-                    <p>
-                        Backend Engineer working with python and Django Rest Framework in a micro-service based
-                        environment powered by AWS.
-                        Led a team of 4 developers and was part of the software architecture design. <br/>
-
-                        HUUB is a logistics startup that links the supply chain from suppliers to customers,
-                        through a full-scale logistics service and an all-in-one management platform, SPOKE.
-                    </p>
-
-                </div>
-
-            </div> <!-- item end -->
-
-        </div> <!-- main-col end -->
-
-    </div> <!-- End Work -->
-
-    <!-- Education
-    ----------------------------------------------- -->
-    <div class="row education">
-
-        <div class="three columns header-col">
-            <h1><span>Education</span></h1>
-        </div>
-
-        <div class="nine columns main-col">
-
-            <div class="row item">
-
-                <div class="twelve columns">
-
-                    <h3>Faculty of Engineering, University of Porto <a href="https://fe.up.pt" target="_blank"><i
-                            class="fa fa-external-link"></i></a></h3>
-                    <p class="info">
-                        Post-graduation in Software Engineering <span>&bull;</span>
-                        <em class="date">September, 2017</em> - <em class="date">January, 2019</em>
-                    </p>
-
-                    <p>
-                        It served to solidify my knowledge in the life cycle of a software product. <br/>
-                        Here I had contact with the best practices in requirements gathering,
-                        software architecture, various development methodologies,
-                        different types of tests (from unit to integration and stress tests) as well as
-                        software teams management techniques.
-                    </p>
-
-                </div>
-
-            </div> <!-- item end -->
-
-            <div class="row item">
-
-                <div class="twelve columns">
-
-                    <h3>Faculty of Engineering, University of Porto <a href="https://fe.up.pt" target="_blank"><i
-                            class="fa fa-external-link"></i></a></h3>
-                    <p class="info">
-                        Master's Degree - Electrical and Computer Engineering, <span>&bull;</span>
-                        <em class="date">September, 2012</em> - <em class="date">July, 2017</em>
-                        <small>Major in automation, specializing in Robotics and Systems</small>
-                    </p>
-
-                    <p>
-                        It enabled me to solidified advanced math and physics topics. <br/>
-                        I gained a lot of knowledge about computer science and programming in various
-                        languages and paradigms. <br/>
-                        With Major in Automation and specialization in Robotics and Systems,
-                        I had contact with IoT, industrial automation and computer vision.
-                    </p>
-
-                </div>
-
-            </div> <!-- item end -->
-
-        </div> <!-- main-col end -->
-
-    </div> <!-- End Education -->
-
-    <!-- Skills
-    ----------------------------------------------- --
-    <div class="row skill">
-
-        <div class="three columns header-col">
-            <h1><span>Skills</span></h1>
-        </div>
-
-        <div class="nine columns main-col">
-
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                enim ipsam
-                voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
-                ratione
-                voluptatem sequi nesciunt.
-            </p>
-
-            <div class="bars">
-
-                <ul class="skills">
-                    <li><span class="bar-expand photoshop"></span><em>Photoshop</em></li>
-                    <li><span class="bar-expand illustrator"></span><em>Illustrator</em></li>
-                    <li><span class="bar-expand wordpress"></span><em>Wordpress</em></li>
-                    <li><span class="bar-expand css"></span><em>CSS</em></li>
-                    <li><span class="bar-expand html5"></span><em>HTML5</em></li>
-                    <li><span class="bar-expand jquery"></span><em>jQuery</em></li>
-                </ul>
-
-            </div><-- end skill-bars --
-
-        </div> <-- main-col end --
-
-    </div> <-- End skills -->
-
-</section> <!-- Resume Section End-->
-
-
-<!-- Portfolio Section
-================================================== --
-<section id="portfolio">
-
-    <div class="row">
-
-        <div class="twelve columns collapsed">
-
-            <h1>Check Out Some of My Works.</h1>
-
-            <-- portfolio-wrapper --
-            <div class="bgrid-quarters s-bgrid-thirds cf" id="portfolio-wrapper">
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-01" title="">
-                            <img alt="" src="images/old-images/portfolio/coffee.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Coffee</h5>
-                                    <p>Illustrration</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-02" title="">
-                            <img alt="" src="images/old-images/portfolio/console.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Console</h5>
-                                    <p>Web Development</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-03" title="">
-                            <img alt="" src="images/old-images/portfolio/judah.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Judah</h5>
-                                    <p>Webdesign</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-04" title="">
-                            <img alt="" src="images/old-images/portfolio/into-the-light.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Into The Light</h5>
-                                    <p>Photography</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-05" title="">
-                            <img alt="" src="images/old-images/portfolio/farmerboy.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Farmer Boy</h5>
-                                    <p>Branding</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-06" title="">
-                            <img alt="" src="images/old-images/portfolio/girl.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Girl</h5>
-                                    <p>Photography</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-07" title="">
-                            <img alt="" src="images/old-images/portfolio/origami.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Origami</h5>
-                                    <p>Illustrration</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div> <-- item end --
-
-                <div class="columns portfolio-item">
-                    <div class="item-wrap">
-
-                        <a href="#modal-08" title="">
-                            <img alt="" src="images/old-images/portfolio/retrocam.jpg">
-                            <div class="overlay">
-                                <div class="portfolio-item-meta">
-                                    <h5>Retrocam</h5>
-                                    <p>Web Development</p>
-                                </div>
-                            </div>
-                            <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-
-                    </div>
-                </div>  <-- item end --
-
-            </div> <-- portfolio-wrapper end --
-
-        </div> <-- twelve columns end --
-
-
-        <-- Modal Popup
-         --------------------------------------------------------------- --
-
-        <div class="popup-modal mfp-hide" id="modal-01">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-coffee.jpg"/>
-
-            <div class="description-box">
-                <h4>Coffee Cup</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Branding, Webdesign</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-01 End --
-
-        <div class="popup-modal mfp-hide" id="modal-02">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-console.jpg"/>
-
-            <div class="description-box">
-                <h4>Console</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Branding, Web Development</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-02 End --
-
-        <div class="popup-modal mfp-hide" id="modal-03">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-judah.jpg"/>
-
-            <div class="description-box">
-                <h4>Judah</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Branding</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-03 End --
-
-        <div class="popup-modal mfp-hide" id="modal-04">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-intothelight.jpg"/>
-
-            <div class="description-box">
-                <h4>Into the Light</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Photography</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-04 End --
-
-        <div class="popup-modal mfp-hide" id="modal-05">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-farmerboy.jpg"/>
-
-            <div class="description-box">
-                <h4>Farmer Boy</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Branding, Webdesign</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-05 End --
-
-        <div class="popup-modal mfp-hide" id="modal-06">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-girl.jpg"/>
-
-            <div class="description-box">
-                <h4>Girl</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Photography</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-06 End --
-
-        <div class="popup-modal mfp-hide" id="modal-07">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-origami.jpg"/>
-
-            <div class="description-box">
-                <h4>Origami</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Branding, Illustration</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-07 End --
-
-        <div class="popup-modal mfp-hide" id="modal-08">
-
-            <img alt="" class="scale-with-grid" src="images/old-images/portfolio/modals/m-retrocam.jpg"/>
-
-            <div class="description-box">
-                <h4>Retrocam</h4>
-                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                    elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                <span class="categories"><i class="fa fa-tag"></i>Webdesign, Photography</span>
-            </div>
-
-            <div class="link-box">
-                <a href="http://www.behance.net">Details</a>
-                <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-        </div><-- modal-01 End --
-
-
-    </div> <-- row End --
-
-</section> <-- Portfolio Section End-->
-
-
-<!-- Testimonials Section
-================================================== --
-<section id="testimonials">
-
-   <div class="text-container">
-
-      <div class="row">
-
-         <div class="two columns header-col">
-
-            <h1><span>Client Testimonials</span></h1>
-
-         </div>
-
-         <div class="ten columns flex-container">
-
-            <div class="flexslider">
-
-               <ul class="slides">
-
-                  <li>
-                     <blockquote>
-                        <p>Your work is going to fill a large part of your life, and the only way to be truly satisfied is
-                        to do what you believe is great work. And the only way to do great work is to love what you do.
-                        If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
-                        </p>
-                        <cite>Steve Jobs</cite>
-                     </blockquote>
-                  </li> !-- slide ends --
-
-                  <li>
-                     <blockquote>
-                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                        Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                        nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                        </p>
-                        <cite>Mr. Adobe</cite>
-                     </blockquote>
-                  </li> !-- slide ends --
-
-               </ul>
-
-            </div> !-- div.flexslider ends --
-
-         </div> !-- div.flex-container ends --
-
-      </div> !-- row ends --
-
-    </div>  !-- text-container ends --
-
-</section> !-- Testimonials Section End-->
-
-
-<!-- Contact Section
-================================================== -->
-<section id="contact">
-
-    <div class="row section-head">
-
-<!--        <div class="two columns header-col">-->
-
-<!--            <h1><span>Get In Touch.</span></h1>-->
-
-<!--        </div>-->
-
-        <div class="ten columns">
-
-            <p class="lead">
-                Get In Touch.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="twelve columns">
-
-            <!-- form -->
-            <form action="" id="contactForm" method="post" name="contactForm">
-                <fieldset>
-
-                    <div>
-                        <label for="contactName">Name <span class="required">*</span></label>
-                        <input id="contactName" name="contactName" size="35" type="text" value="">
-                    </div>
-
-                    <div>
-                        <label for="contactEmail">Email <span class="required">*</span></label>
-                        <input id="contactEmail" name="contactEmail" size="35" type="email" value="">
-                    </div>
-
-                    <div>
-                        <label for="contactSubject">Subject</label>
-                        <input id="contactSubject" name="contactSubject" size="35" type="text" value="">
-                    </div>
-
-                    <div>
-                        <label for="contactMessage">Message <span class="required">*</span></label>
-                        <textarea cols="50" id="contactMessage" name="contactMessage" rows="15"></textarea>
-                    </div>
-
-                    <div>
-                        <button class="submit">Submit</button>
-                        <span id="image-loader">
-                        <img alt="" src="images/old-images/loader.gif">
-                     </span>
-                    </div>
-
-                </fieldset>
-            </form> <!-- Form End -->
-
-            <!-- contact-warning -->
-            <div id="message-warning"> Ups, something went wrong.</div>
-            <!-- contact-success -->
-            <div id="message-success">
-                <i class="fa fa-check"></i>Your message was sent, thank you!<br>
-            </div>
-
-        </div>
-
-    </div>
-
-</section> <!-- Contact Section End-->
-
-
-<!-- footer
-================================================== -->
-<footer>
-
-    <div class="row">
-
-        <div class="twelve columns">
-
-            <ul class="social-links">
-                <li>
-                    <a href="https://www.facebook.com/luisfmelo94" target="_blank"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/luisfmelo" target="_blank"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/_luisfmelo/" target="_blank"><i class="fa fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://pt.linkedin.com/in/luisfmelo" target="_blank"><i class="fa fa-linkedin"></i></a>
-                </li>
-                <li>
-                    <a href="https://github.com/luisfmelo" target="_blank"><i class="fa fa-github"></i></a>
-                </li>
-            </ul>
-
-            <ul class="copyright">
-                <li>&copy; CeeVee</li>
-                <li>Design by <a href="https://www.styleshout.com/" title="Styleshout">Styleshout</a></li>
-            </ul>
-
-        </div>
-
-        <div id="go-top"><a class="smoothscroll" href="#home" title="Back to Top"><i class="icon-up-open"></i></a></div>
-
-    </div>
-
-</footer> <!-- Footer End-->
-
-<!-- Java Script
-================================================== -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-
-<script src="js/jquery.flexslider.js"></script>
-<script src="js/waypoints.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/magnific-popup.js"></script>
-<script src="js/init.js"></script>
 
 </body>
-
 </html>
