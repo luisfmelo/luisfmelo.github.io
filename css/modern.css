@@ -1,0 +1,481 @@
+/*
+=====================================================================
+*   Modern Override Stylesheet
+*   Modernizes the CeeVee template with contemporary styling
+=====================================================================
+*/
+
+/* ------------------------------------------------------------------ */
+/* Global Overrides
+/* ------------------------------------------------------------------ */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/* Header
+/* ------------------------------------------------------------------ */
+
+header {
+    background: linear-gradient(160deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    height: 100vh;
+    min-height: 600px;
+}
+
+header .banner-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff 0%, #a8b2d1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header .banner-text h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+header .banner-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(168, 178, 209, 0.7);
+}
+
+header .banner-text h3 span,
+header .banner-text h3 a {
+    color: #64ffda;
+    font-weight: 500;
+}
+
+header .banner-text hr {
+    border-color: rgba(100, 255, 218, 0.15);
+    width: 40%;
+}
+
+header .social li a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+header .social li a:hover {
+    color: #64ffda;
+    transform: translateY(-3px);
+}
+
+header .social li {
+    transition: transform 0.3s ease;
+}
+
+header .scrolldown a {
+    color: rgba(100, 255, 218, 0.5);
+    transition: all 0.3s ease;
+}
+
+header .scrolldown a:hover {
+    color: #64ffda;
+}
+
+/* Navigation */
+.opaque {
+    background-color: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#nav-wrap {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+ul#nav li a {
+    transition: color 0.3s ease;
+}
+
+ul#nav li.current a {
+    color: #64ffda;
+}
+
+ul#nav li a:hover {
+    color: #64ffda;
+}
+
+/* ------------------------------------------------------------------ */
+/* About Section
+/* ------------------------------------------------------------------ */
+
+#about {
+    background: #f8f9fa;
+    padding-top: 110px;
+    padding-bottom: 80px;
+}
+
+#about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555;
+    font-weight: 300;
+}
+
+#about .profile-pic {
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s ease;
+}
+
+#about .profile-pic:hover {
+    transform: scale(1.03);
+}
+
+#about .download .button {
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 14px 28px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#about .download .button:hover {
+    background: #64ffda;
+    color: #1a1a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+}
+
+#about a, #about a:visited {
+    color: #1a1a2e;
+}
+
+#about a:hover, #about a:focus {
+    color: #64ffda;
+}
+
+/* ------------------------------------------------------------------ */
+/* Resume Section
+/* ------------------------------------------------------------------ */
+
+#resume {
+    background: #fff;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+#resume h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+#resume h1 span {
+    border-bottom: 3px solid #64ffda;
+    padding-bottom: 8px;
+}
+
+#resume h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+#resume .info {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #888;
+}
+
+#resume .date {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.08);
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+
+#resume p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+}
+
+#resume a, #resume a:visited {
+    color: #1a1a2e;
+}
+
+#resume a:hover, #resume a:focus {
+    color: #64ffda;
+}
+
+.work .row.item {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(100, 255, 218, 0.2);
+    margin-left: 0;
+}
+
+.work .row.item .twelve.columns {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.work .row.item .twelve.columns:hover {
+    background: rgba(100, 255, 218, 0.03);
+}
+
+.education .row.item .twelve.columns {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.education .row.item .twelve.columns:hover {
+    background: rgba(100, 255, 218, 0.03);
+}
+
+#resume ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#resume ul li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+#resume ul li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #64ffda;
+}
+
+/* ------------------------------------------------------------------ */
+/* Contact Section
+/* ------------------------------------------------------------------ */
+
+#contact {
+    background: linear-gradient(160deg, #0a0a0a 0%, #1a1a2e 100%);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#contact p.lead {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 700;
+}
+
+#contact label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#contact input,
+#contact textarea,
+#contact select {
+    font-family: 'Inter', sans-serif;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 20px;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+    background: rgba(100, 255, 218, 0.05);
+    border-color: #64ffda;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+}
+
+#contact button.submit {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
+    background: #64ffda;
+    color: #1a1a2e;
+    border-radius: 8px;
+    padding: 16px 40px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+#contact button.submit:hover {
+    background: #fff;
+    color: #1a1a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+}
+
+#contact span.required {
+    color: #64ffda;
+}
+
+#message-warning {
+    border-radius: 8px;
+}
+
+#message-success {
+    color: #64ffda;
+    border-radius: 8px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Footer
+/* ------------------------------------------------------------------ */
+
+footer {
+    background: #0a0a0a;
+    padding-top: 50px;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+}
+
+footer .social-links li a {
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+footer .social-links li a:hover {
+    color: #64ffda;
+}
+
+footer .copyright li {
+    color: rgba(255, 255, 255, 0.2);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+
+footer .copyright li a {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+footer .copyright li:before {
+    color: #64ffda;
+}
+
+#go-top a {
+    background-color: rgba(100, 255, 218, 0.15);
+    color: #64ffda;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#go-top a:hover {
+    background-color: #64ffda;
+    color: #1a1a2e;
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations
+/* ------------------------------------------------------------------ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header .banner-text h2 {
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+header .banner-text h1 {
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+header .banner-text h3 {
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+header .banner-text hr {
+    animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+header .banner-text .social {
+    animation: fadeInUp 0.8s ease 1s both;
+}
+
+/* ------------------------------------------------------------------ */
+/* Selection Color
+/* ------------------------------------------------------------------ */
+
+::selection {
+    background: #64ffda;
+    color: #1a1a2e;
+}
+
+::-moz-selection {
+    background: #64ffda;
+    color: #1a1a2e;
+}
+
+/* ------------------------------------------------------------------ */
+/* Misc
+/* ------------------------------------------------------------------ */
+
+/* Use a dark theme for the about section too for consistency */
