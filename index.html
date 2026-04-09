@@ -365,11 +365,19 @@
             white-space: nowrap;
         }
 
+        .timeline-role-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
         .timeline-role {
             font-size: 15px;
             font-weight: 500;
             color: var(--text);
-            margin-bottom: 12px;
         }
 
         .timeline-desc {
@@ -615,17 +623,19 @@
         <div class="timeline-item">
             <div class="timeline-header">
                 <span class="timeline-company"><a href="https://www.qonto.com" target="_blank">Qonto</a></span>
+            </div>
+            <div class="timeline-role-row">
+                <span class="timeline-role">Staff Software Engineer</span>
                 <span class="timeline-date">Oct 2025 - Present</span>
             </div>
-            <div class="timeline-role">Staff Software Engineer</div>
             <p class="timeline-desc">
                 Qonto is the leading European business finance solution. It simplifies everything from everyday banking and financing to bookkeeping and spending management, serving hundreds of thousands of SMEs and freelancers across Europe.
             </p>
             <div class="timeline-subrole">
-                <div class="timeline-header">
+                <div class="timeline-role-row">
+                    <span class="timeline-role">Senior Software Engineer</span>
                     <span class="timeline-date">Aug 2022 - Oct 2025</span>
                 </div>
-                <div class="timeline-role">Senior Software Engineer</div>
                 <p class="timeline-desc">
                     Built and scaled Qonto's platform, contributing to the growth of a product used by hundreds of thousands of European businesses.
                 </p>
@@ -635,9 +645,11 @@
         <div class="timeline-item">
             <div class="timeline-header">
                 <span class="timeline-company"><a href="https://www.curve.com" target="_blank">Curve</a></span>
+            </div>
+            <div class="timeline-role-row">
+                <span class="timeline-role">Software Engineer</span>
                 <span class="timeline-date">May 2021 - Jul 2022</span>
             </div>
-            <div class="timeline-role">Software Engineer</div>
             <p class="timeline-desc">
                 Backend Software Engineer working with Golang in the fintech space.
             </p>
@@ -651,9 +663,11 @@
         <div class="timeline-item">
             <div class="timeline-header">
                 <span class="timeline-company">Instituto Politécnico do Cávado e do Ave</span>
+            </div>
+            <div class="timeline-role-row">
+                <span class="timeline-role">Invited Professor</span>
                 <span class="timeline-date">Nov 2021 - Mar 2022</span>
             </div>
-            <div class="timeline-role">Invited Professor</div>
             <p class="timeline-desc">
                 Seasonal teaching position at IPCA in Vila Nova de Famalicão.
             </p>
@@ -662,9 +676,11 @@
         <div class="timeline-item">
             <div class="timeline-header">
                 <span class="timeline-company"><a href="https://www.kelvininc.com" target="_blank">Kelvin Inc.</a></span>
+            </div>
+            <div class="timeline-role-row">
+                <span class="timeline-role">Software Engineer</span>
                 <span class="timeline-date">Aug 2019 - Apr 2021</span>
             </div>
-            <div class="timeline-role">Software Engineer</div>
             <p class="timeline-desc">
                 Backend Engineer working with Golang and Python in a cloud distributed environment to develop high availability software.
                 Kelvin Inc. is a San Francisco based company that enables physical systems to optimize and operate themselves.
@@ -674,9 +690,11 @@
         <div class="timeline-item">
             <div class="timeline-header">
                 <span class="timeline-company">HUUB</span>
+            </div>
+            <div class="timeline-role-row">
+                <span class="timeline-role">Software Engineer</span>
                 <span class="timeline-date">Jan 2017 - Jul 2019</span>
             </div>
-            <div class="timeline-role">Software Engineer</div>
             <p class="timeline-desc">
                 Backend Engineer working with Python and Django Rest Framework in a micro-service based environment powered by AWS.
                 Led a team of 4 developers and was part of the software architecture design.
