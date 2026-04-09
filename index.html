@@ -214,6 +214,7 @@
         .section-header {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 16px;
             margin-bottom: 40px;
         }
@@ -228,13 +229,14 @@
             font-size: 28px;
             font-weight: 700;
             color: #fff;
+            white-space: nowrap;
         }
 
         .section-line {
-            flex: 1;
+            width: 80px;
             height: 1px;
             background: var(--border);
-            max-width: 300px;
+            flex-shrink: 0;
         }
 
         /* ---- ABOUT ---- */
@@ -459,14 +461,15 @@
 
         .contact-text {
             max-width: 500px;
-            margin: 0 0 40px;
+            margin: 0 auto 40px;
             color: var(--text-dim);
             font-size: 16px;
+            text-align: center;
         }
 
         .contact-links {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
         }
@@ -484,20 +487,41 @@
         /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
             nav { padding: 0 20px; }
-            section { padding: 40px 6% 50px; }
-            .hero { padding: 100px 6% 60px; }
-            .about-grid { grid-template-columns: 1fr; }
-            .about-photo { order: -1; }
             nav .nav-links { gap: 16px; }
             nav .nav-links a { font-size: 12px; }
             nav .nav-links a::before { display: none; }
-            .timeline-header { flex-direction: column; }
+
+            section { padding: 40px 6% 50px; }
+
+            .hero { padding: 100px 6% 60px; }
+            .hero-name { font-size: 40px; }
+            .hero-title { font-size: 18px; }
+            .hero-desc { font-size: 14px; }
+
+            .about-grid { grid-template-columns: 1fr; }
+            .about-photo { order: -1; max-height: 300px; }
+
+            .timeline-header { flex-direction: column; gap: 4px; }
+            .timeline-date { font-size: 12px; }
+
+            .education-grid { grid-template-columns: 1fr; }
+
+            .contact-links { flex-direction: column; align-items: center; }
+            .contact-links .btn { width: 100%; justify-content: center; max-width: 280px; }
+
+            .section-line { width: 40px; }
         }
 
         @media (max-width: 480px) {
-            nav .logo { font-size: 14px; }
-            nav .nav-links { gap: 12px; }
+            nav .logo img { height: 28px; }
+            nav .nav-links { gap: 10px; }
             nav .nav-links a { font-size: 11px; }
+
+            .hero-name { font-size: 32px; }
+            .hero-title { font-size: 16px; }
+            .hero-socials { gap: 16px; }
+
+            .timeline-card { padding: 20px; }
         }
     </style>
 </head>
@@ -545,6 +569,7 @@
 <!-- About -->
 <section id="about">
     <div class="section-header">
+        <div class="section-line"></div>
         <span class="section-number">//</span>
         <h2 class="section-title">About Me</h2>
         <div class="section-line"></div>
@@ -579,6 +604,7 @@
 <!-- Experience -->
 <section id="experience">
     <div class="section-header">
+        <div class="section-line"></div>
         <span class="section-number">//</span>
         <h2 class="section-title">Experience</h2>
         <div class="section-line"></div>
@@ -663,6 +689,7 @@
 <!-- Education -->
 <section id="education">
     <div class="section-header">
+        <div class="section-line"></div>
         <span class="section-number">//</span>
         <h2 class="section-title">Education</h2>
         <div class="section-line"></div>
@@ -695,6 +722,7 @@
 <!-- Contact -->
 <section id="contact">
     <div class="section-header">
+        <div class="section-line"></div>
         <span class="section-number">//</span>
         <h2 class="section-title">Get In Touch</h2>
         <div class="section-line"></div>
